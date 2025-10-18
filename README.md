@@ -34,14 +34,21 @@ Before you begin, ensure you have the following installed on your system:
 - Python 3: You can download it from [python.org.](https://www.python.org/downloads/)
 - MySQL Server & Workbench: The application is built using MySQL 8.0. You can download it from the [official MySQL website.](https://dev.mysql.com/downloads/installer/)
 
+#### Recommended Tutorials:
+
+- Python (Windows): For a step-by-step guide on installing Python 3 on Windows, you can watch this [video tutorial by Tech With Tim.](https://www.google.com/search?q=https://www.youtube.com/watch%3Fv%3D_yKi16-T_ZA)
+
+- MySQL & Workbench (Windows): For a complete walkthrough of installing both the MySQL Server and Workbench, this [video tutorial from Amigoscode](https://www.google.com/search?q=https://www.youtube.com/watch%3Fv%3DS-e_xxgC-l0) is excellent.
+
+(Note: While specific version numbers in the videos may differ, the installation process is generally the same.)
 
 ### 2. Dependencies
 
 The Python backend requires the following libraries:
 
-```Flask```
-```Flask-Cors```
-```PyMySQL```
+- ```Flask```
+- ```Flask-Cors```
+- ```PyMySQL```
 
 These will be installed in a later step.
 
