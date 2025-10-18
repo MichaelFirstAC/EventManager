@@ -51,7 +51,7 @@ These will be installed in a later step.
 Clone this project to your local machine using Git.
 
 ```
-git clone <your-repository-url>
+git clone https://github.com/MichaelFirstAC/EventManager.git
 cd EventManagerPro
 ```
 
