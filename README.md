@@ -15,13 +15,10 @@ The application is designed to be a comprehensive solution for event administrat
 
 ### Technology Stack
 
-Backend: Python 3 with the Flask web framework.
-
-Database: MySQL 8.0.
-
-Frontend: Vanilla HTML5, CSS3, and modern JavaScript (ES6+).
-
-Python Libraries: Flask, Flask-Cors, PyMySQL.
+- Backend: Python 3 with the Flask web framework.
+- Database: MySQL 8.0.
+- Frontend: Vanilla HTML5, CSS3, and modern JavaScript (ES6+).
+- Python Libraries: Flask, Flask-Cors, PyMySQL.
 
 # Getting Started
 
