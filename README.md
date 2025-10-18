@@ -61,7 +61,13 @@ cd EventManagerPro
 CREATE DATABASE EventManagementSystem;
 USE EventManagementSystem;
 ```
-3. Run the rest of the SQL script you have to create all the tables (Venue, Organizer, Event, etc.) and insert the initial sample data.
+3. Run these specific SQL Scripts in Order to insert the sample dummy data.
+   
+   1. DatabaseQueryCreate
+   2. DatabaseQueryInsert
+   3. DatabaseQueryTicket
+   4. DatabaseAlterUser
+   5. DatabaseAlterTable
 
 ### Step 3: Configure the Backend
 
@@ -80,10 +86,28 @@ python -m venv venv
 ```
 3. Install the required Python packages:
 ```
-pip install Flask Flask-Cors PyMySQL
+pip install Flask
+pip install Flask-Cors
+pip install PyMySQL
 ```
 4. Open the app.py file in your code editor.
 5. Find the db_config dictionary at the top and update it with your personal MySQL credentials (username, password, and port).
+
+   This is what it looks like:
+
+    ```
+       db_config = {
+        'host': 'localhost',
+        'port': YOUR_PORT,
+        'user': 'YOUR_USERNAME',
+        'password': 'YOUR_PASSWORD',
+        'database': 'eventmanagementsystem',
+        'cursorclass': DictCursor
+    }
+    ```
+    P.S. Your username is usually 'root' if you haven't changed it, and if you're new in SQL Workbench, the port is usually '3306'.
+
+6. Replace the necessary configs according to your own SQL server. Make changes if needed.
 
 ### Step 4: Run the Application
 
