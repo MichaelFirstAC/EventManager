@@ -16,8 +16,11 @@ The application is designed to be a comprehensive solution for event administrat
 ### Technology Stack
 
 Backend: Python 3 with the Flask web framework.
+
 Database: MySQL 8.0.
+
 Frontend: Vanilla HTML5, CSS3, and modern JavaScript (ES6+).
+
 Python Libraries: Flask, Flask-Cors, PyMySQL.
 
 # Getting Started
@@ -29,7 +32,9 @@ Follow these instructions to set up and run the project on your local machine.
 Before you begin, ensure you have the following installed on your system:
 
 Python 3: You can download it from python.org.
+
 MySQL Server & Workbench: The application is built using MySQL 8.0. You can download it from the official MySQL website.
+
 A code editor like Visual Studio Code.
 
 ### 2. Dependencies
