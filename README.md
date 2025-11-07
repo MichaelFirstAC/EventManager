@@ -101,6 +101,7 @@ pip install PyMySQL
 5. Find the db_config dictionary at the top and update it with your personal MySQL credentials (username, password, and port).
 
    This is what it looks like:
+   (Currently, the files uploaded consist of MY SQL configs. Do change it with your own.)
 
     ```
        db_config = {
@@ -114,7 +115,7 @@ pip install PyMySQL
     ```
     P.S. Your username is usually 'root' if you haven't changed it, and if you're new in SQL Workbench, the port is usually '3306'.
 
-6. Replace the necessary configs according to your own SQL server. Make changes if needed.
+7. Replace the necessary configs according to your own SQL server. Make changes if needed.
 
 ### Step 4: Run the Application
 
