@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">EventManager</a>
+            <ul>
+                <li><a href="index.html">Events</a></li>
+                <li><a href="add_event.html">Add Event</a></li>
+                <li><a href="venues.html">Venues</a></li>
+                <li><a href="organizers.html" class="active">Organizers</a></li>
+                <li><a href="attendees.html">Attendees</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h1 id="organizer-name-title">Loading Organizer...</h1>
+        <div id="organizer-details-container" class="detail-container"></div>
+        <div class="list-container">
+            <h2>Events Hosted by this Organizer</h2>
+            <table>
+                <thead><tr><th>Event Name</th><th>Start Date</th><th>City</th></tr></thead>
+                <tbody id="events-table-body"></tbody>
+            </table>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
+

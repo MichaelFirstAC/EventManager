@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">EventManager</a>
+            <ul>
+                <li><a href="index.html">Events</a></li>
+                <li><a href="add_event.html">Add Event</a></li>
+                <li><a href="venues.html">Venues</a></li>
+                <li><a href="organizers.html">Organizers</a></li>
+                <li><a href="attendees.html">Attendees</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h1 id="event-name-title">Loading Event...</h1>
+        <div id="event-details-container" class="detail-container"></div>
+        <div class="list-container">
+            <h2>Event Schedule</h2>
+            <div id="schedule-list-message" class="message"></div>
+            <div class="table-scroll-container">
+                <table>
+                    <thead><tr><th>Activity</th><th>Speaker</th><th>Start Time</th><th>End Time</th><th>Actions</th></tr></thead>
+                    <tbody id="schedule-table-body"></tbody>
+                </table>
+            </div>
+            <div class="pagination-container">
+                <button id="load-more-schedule" class="btn" style="display: none;">Load More Items</button>
+            </div>
+        </div>
+        <div class="form-container">
+            <h3>Add Schedule Item</h3>
+            <form id="add-schedule-form">
+                <div class="form-group"><label for="activityName">Activity Name</label><input type="text" id="activityName" required></div>
+                <div class="form-group"><label for="speaker">Speaker</label><input type="text" id="speaker"></div>
+                <div class="form-group"><label for="startTime">Start Time</label><input type="datetime-local" id="startTime" required></div>
+                <div class="form-group"><label for="endTime">End Time</label><input type="datetime-local" id="endTime" required></div>
+                <button type="submit" class="btn">Add to Schedule</button>
+            </form>
+            <div id="schedule-form-message" class="message"></div>
+        </div>
+        <div class="list-container">
+            <h2>Registered Attendees</h2>
+            <div id="attendee-list-message" class="message"></div>
+            <div class="table-scroll-container">
+                <table>
+                    <thead><tr><th>Name</th><th>Email</th><th>Ticket Type</th><th>Price</th><th>Purchase Date</th><th>Actions</th></tr></thead>
+                    <tbody id="attendees-table-body"></tbody>
+                </table>
+            </div>
+            <div class="pagination-container">
+                <button id="load-more-attendees" class="btn" style="display: none;">Load More Attendees</button>
+            </div>
+        </div>
+        <div class="form-container">
+            <h3>Register for this Event</h3>
+            <form id="register-form">
+                <div class="form-group"><label for="regFullName">Full Name</label><input type="text" id="regFullName" required></div>
+                <div class="form-group"><label for="regEmail">Email</label><input type="email" id="regEmail" required></div>
+                <div class="form-group"><label for="regPhone">Phone</label><input type="tel" id="regPhone"></div>
+                <div class="form-group">
+                    <label for="regTicketType">Ticket Type</label>
+                    <select id="regTicketType" name="TicketType" required><option value="Regular">Regular</option><option value="VIP">VIP (1.5x Price)</option></select>
+                </div>
+                <div class="form-group"><h4>Calculated Price: <span id="calculated-price">$0.00</span></h4></div>
+                <button type="submit" class="btn">Register</button>
+            </form>
+            <div id="register-form-message" class="message"></div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
+
