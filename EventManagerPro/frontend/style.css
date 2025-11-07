@@ -145,7 +145,7 @@ h1, h2, h3, h4 {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 th, td {
