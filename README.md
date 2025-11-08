@@ -97,7 +97,7 @@ pip install Flask
 pip install Flask-Cors
 pip install PyMySQL
 ```
-4. Open the app.py file in your code editor.
+4. Open the folder 'EventManagerPro' and locate app.py file in your code editor.
 5. Find the db_config dictionary at the top and update it with your personal MySQL credentials (username, password, and port).
 
    This is what it looks like:
