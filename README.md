@@ -79,7 +79,9 @@ USE EventManagementSystem;
 ### Step 3: Configure the Backend
 
 1. Navigate to the project's root directory (EventManagerPro) in your terminal.
-2. Create and activate a Python virtual environment. (This is recommended but not required. If you want to skip this, immediately go to step 3.)
+2. Create and activate a Python virtual environment. 
+
+(This is recommended but not required. If you want to skip this, immediately go to step 3.)
 
 #### For macOS/Linux
 ```
