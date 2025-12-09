@@ -144,7 +144,7 @@ cd frontend
 ```
 python -m http.server 8000
 ```
-- The frontend will start running on http://localhost:8000.
+- The frontend will start running on [http://localhost:8000](http://localhost:8000/login.html).
 
 ### Step 5: Access the Application
 Open your web browser and navigate to:
