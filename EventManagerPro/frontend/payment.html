@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Event Manager Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="participant-dashboard.html" class="logo">EventManager</a>
+            <ul>
+                <li><a href="participant-dashboard.html">Browse Events</a></li>
+                <li><a href="my-events.html">My Events</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li style="margin-left: auto;"><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h1>Complete Your Payment</h1>
+        <div id="payment-details-container" class="detail-container">
+            <p>Loading payment details...</p>
+        </div>
+        
+        <div class="form-container" id="payment-confirmation-section" style="display: none;">
+            <h3>Payment Instructions</h3>
+            <div class="payment-instructions">
+                <p><strong>Please complete your payment using one of the following methods:</strong></p>
+                <ul>
+                    <li>Bank Transfer: Account #123-456-789</li>
+                    <li>Cash Payment: Visit our office at Event Management HQ</li>
+                    <li>Online Payment: Use reference number shown above</li>
+                </ul>
+                <p><em>After completing your payment, click the button below to confirm your registration.</em></p>
+            </div>
+            <button id="confirm-payment-btn" class="btn" onclick="confirmPayment()">I Have Paid</button>
+            <div id="payment-message" class="message"></div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+    <script src="participant.js"></script>
+    <script>
+        let currentTicketId = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            currentTicketId = params.get('ticketId');
+            
+            if (!currentTicketId) {
+                window.location.href = 'my-events.html';
+                return;
+            }
+            
+            loadPaymentDetails();
+        });
+
+        async function loadPaymentDetails() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/payments/${currentTicketId}`, {
+                    headers: getAuthHeaders()
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to load payment details');
+                }
+                
+                const data = await response.json();
+                displayPaymentDetails(data);
+                
+                // Show confirmation section if payment is still pending
+                if (data.RegistrationStatus === 'PENDING') {
+                    document.getElementById('payment-confirmation-section').style.display = 'block';
+                }
+            } catch (error) {
+                document.getElementById('payment-details-container').innerHTML = 
+                    `<p class="error">Error loading payment details: ${error.message}</p>`;
+            }
+        }
+
+        function displayPaymentDetails(data) {
+            const container = document.getElementById('payment-details-container');
+            const statusBadge = data.RegistrationStatus === 'CONFIRMED' 
+                ? '<span style="color: green; font-weight: bold;">✓ CONFIRMED</span>'
+                : '<span style="color: orange; font-weight: bold;">⏳ PENDING</span>';
+            
+            container.innerHTML = `
+                <h2>Ticket Information</h2>
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <p><strong>Status:</strong> ${statusBadge}</p>
+                    <p><strong>Ticket Reference:</strong> #${data.TicketID}</p>
+                    <hr style="margin: 15px 0;">
+                    <h3>${data.EventName}</h3>
+                    <p><strong>Date:</strong> ${new Date(data.StartDate).toLocaleDateString()} - ${new Date(data.EndDate).toLocaleDateString()}</p>
+                    <p><strong>Venue:</strong> ${data.VenueName}</p>
+                    <p><strong>Location:</strong> ${data.Address}, ${data.City}</p>
+                    <hr style="margin: 15px 0;">
+                    <h3>Attendee Details</h3>
+                    <p><strong>Name:</strong> ${data.FullName}</p>
+                    <p><strong>Email:</strong> ${data.Email}</p>
+                    <p><strong>Phone:</strong> ${data.Phone || 'N/A'}</p>
+                    <hr style="margin: 15px 0;">
+                    <h3>Payment Details</h3>
+                    <p><strong>Ticket Type:</strong> ${data.TicketType}</p>
+                    <p><strong>Amount:</strong> <span style="font-size: 24px; color: #007bff; font-weight: bold;">$${parseFloat(data.Price).toFixed(2)}</span></p>
+                    <p><strong>Registration Date:</strong> ${new Date(data.PurchaseDate).toLocaleDateString()}</p>
+                    ${data.PaymentDate ? `<p><strong>Payment Date:</strong> ${new Date(data.PaymentDate).toLocaleDateString()}</p>` : ''}
+                </div>
+            `;
+            
+            if (data.RegistrationStatus === 'CONFIRMED') {
+                container.innerHTML += `
+                    <div style="background: #d4edda; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
+                        <p style="color: #155724; margin: 0;"><strong>✓ Payment Confirmed!</strong> Your registration is complete. See you at the event!</p>
+                    </div>
+                `;
+            }
+        }
+
+        async function confirmPayment() {
+            const btn = document.getElementById('confirm-payment-btn');
+            const msgDiv = document.getElementById('payment-message');
+            
+            btn.disabled = true;
+            btn.textContent = 'Processing...';
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/payments/${currentTicketId}/confirm`, {
+                    method: 'POST',
+                    headers: getAuthHeaders()
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    msgDiv.textContent = result.message;
+                    msgDiv.className = 'message success';
+                    msgDiv.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'my-events.html';
+                    }, 2000);
+                } else {
+                    throw new Error(result.error || 'Failed to confirm payment');
+                }
+            } catch (error) {
+                msgDiv.textContent = 'Error: ' + error.message;
+                msgDiv.className = 'message error';
+                msgDiv.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'I Have Paid';
+            }
+        }
+    </script>
+</body>
+</html>

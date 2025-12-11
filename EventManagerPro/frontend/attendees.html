@@ -16,6 +16,7 @@
                 <li><a href="venues.html">Venues</a></li>
                 <li><a href="organizers.html">Organizers</a></li>
                 <li><a href="attendees.html" class="active">Attendees</a></li>
+                <li style="margin-left: auto;"><a href="#" onclick="logout()">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -39,14 +40,7 @@
                 <button id="load-more-btn" class="btn" style="display: none;">Load More</button>
             </div>
         </div>
-        <div class="form-container">
-            <h2>Add New Attendee</h2>
-            <form id="add-attendee-form">
-                <div class="form-group"><label for="fullName">Full Name</label><input type="text" id="fullName" required></div>
-                <div class="form-group"><label for="email">Email</label><input type="email" id="email" required></div>
-                <div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone"></div>
-                <button type="submit" class="btn">Add Attendee</button>
-            </form>
+        <!-- Add New Attendee form removed - attendees can only register through participant registration -->
             <div id="form-message" class="message"></div>
         </div>
     </main>

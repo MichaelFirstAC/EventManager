@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager Pro - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .login-box {
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+        }
+        .login-box h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+        .btn:hover {
+            background-color: #0069d9;
+        }
+        .message {
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            display: none;
+        }
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .divider {
+            text-align: center;
+            margin: 30px 0 20px;
+            color: var(--secondary-color);
+        }
+        .register-btn {
+            background-color: var(--secondary-color);
+        }
+        .register-btn:hover {
+            background-color: #5a6268;
+        }
+        @media (max-width: 768px) {
+            .login-container {
+                grid-template-columns: 1fr;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="login.html" class="logo">EventManager</a>
+        </nav>
+    </header>
+    <main>
+        <div class="login-container">
+            <!-- Admin Login -->
+            <div class="login-box">
+                <h2>Admin Login</h2>
+                <form id="admin-login-form">
+                    <div class="form-group">
+                        <label for="admin-email">Email</label>
+                        <input type="email" id="admin-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" required>
+                    </div>
+                    <button type="submit" class="btn">Sign In as Admin</button>
+                    <div id="admin-message" class="message"></div>
+                </form>
+            </div>
+
+            <!-- Participant (Attendee) Login -->
+            <div class="login-box">
+                <h2>Participant Login</h2>
+                <form id="participant-login-form">
+                    <div class="form-group">
+                        <label for="participant-email">Email</label>
+                        <input type="email" id="participant-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="participant-password">Password</label>
+                        <input type="password" id="participant-password" required>
+                    </div>
+                    <button type="submit" class="btn">Sign In as Participant</button>
+                    <div id="participant-message" class="message"></div>
+                </form>
+
+                <div class="divider">OR</div>
+
+                <button class="btn register-btn" onclick="toggleRegisterForm()">Create New Account</button>
+
+                <!-- Hidden Registration Form -->
+                <form id="register-form" style="display: none; margin-top: 20px;">
+                    <h3 style="margin-top: 0;">Create Account</h3>
+                    <div class="form-group">
+                        <label for="reg-name">Full Name</label>
+                        <input type="text" id="reg-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email">Email</label>
+                        <input type="email" id="reg-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-phone">Phone (optional)</label>
+                        <input type="tel" id="reg-phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">Password</label>
+                        <input type="password" id="reg-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password-confirm">Confirm Password</label>
+                        <input type="password" id="reg-password-confirm" required>
+                    </div>
+                    <button type="submit" class="btn">Register</button>
+                    <button type="button" class="btn register-btn" onclick="toggleRegisterForm()" style="background-color: #6c757d; margin-top: 10px;">Cancel</button>
+                    <div id="register-message" class="message"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="auth.js"></script>
+</body>
+</html>

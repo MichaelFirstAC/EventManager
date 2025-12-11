@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Manager Pro</title>
+    <title>My Events - Event Manager Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo">EventManager</a>
+            <a href="participant-dashboard.html" class="logo">EventManager</a>
             <ul>
-                <li><a href="index.html" class="active">Events</a></li>
-                <li><a href="add_event.html">Add Event</a></li>
-                <li><a href="venues.html">Venues</a></li>
-                <li><a href="organizers.html">Organizers</a></li>
-                <li><a href="attendees.html">Attendees</a></li>
+                <li><a href="participant-dashboard.html" class="active">Browse Events</a></li>
+                <li><a href="my-events.html">My Events</a></li>
+                <li><a href="profile.html">Profile</a></li>
                 <li style="margin-left: auto;"><a href="#" onclick="logout()">Logout</a></li>
             </ul>
         </nav>
     </header>
     <main class="container">
-        <h1>Upcoming Events</h1>
+        <h1>Browse Available Events</h1>
         <div class="search-container">
             <input type="text" id="event-search-input" placeholder="Search by event name or city...">
             <button id="event-search-btn" class="btn">Search</button>
@@ -29,6 +27,6 @@
         <div id="events-grid" class="grid-container"></div>
     </main>
     <script src="main.js"></script>
+    <script src="participant.js"></script>
 </body>
 </html>
-
