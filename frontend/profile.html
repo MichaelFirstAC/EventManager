@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Event Manager Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="participant-dashboard.html" class="logo">EventManager</a>
+            <ul>
+                <li><a href="participant-dashboard.html">Browse Events</a></li>
+                <li><a href="my-events.html">My Events</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li style="margin-left: auto;"><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h1>My Profile</h1>
+        <div class="form-container">
+            <form id="profile-form">
+                <div class="form-group"><label for="profileFullName">Full Name</label><input type="text" id="profileFullName" required></div>
+                <div class="form-group"><label for="profileEmail">Email</label><input type="email" id="profileEmail" required></div>
+                <div class="form-group"><label for="profilePhone">Phone</label><input type="tel" id="profilePhone"></div>
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+            <div id="profile-message" class="message"></div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Attendees</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">EventManager</a>
+            <ul>
+                <li><a href="index.html">Events</a></li>
+                <li><a href="add_event.html">Add Event</a></li>
+                <li><a href="venues.html">Venues</a></li>
+                <li><a href="organizers.html">Organizers</a></li>
+                <li><a href="attendees.html" class="active">Attendees</a></li>
+                <li style="margin-left: auto;"><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="list-container">
+            <h2>Existing Attendees</h2>
+            <div class="search-container">
+                <input type="text" id="attendee-search-input" placeholder="Search by name or email...">
+                <button id="attendee-search-btn" class="btn">Search</button>
+            </div>
+            <div id="list-message" class="message"></div>
+            <div class="table-scroll-container">
+                <table>
+                    <thead>
+                        <tr><th>Name</th><th>Email</th><th>Phone</th><th>Registered On</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="attendees-table-body"></tbody>
+                </table>
+            </div>
+            <div class="pagination-container">
+                <button id="load-more-btn" class="btn" style="display: none;">Load More</button>
+            </div>
+        </div>
+        <!-- Add New Attendee form removed - attendees can only register through participant registration -->
+            <div id="form-message" class="message"></div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
+
