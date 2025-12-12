@@ -1,4 +1,0 @@
-USE eventmanagementsystem;
-
-ALTER TABLE Event
-ADD COLUMN Price DECIMAL(10, 2) NOT NULL DEFAULT 0.00;
