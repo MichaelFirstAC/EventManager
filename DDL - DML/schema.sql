@@ -1,6 +1,3 @@
--- COMPLETE DATABASE SETUP SCRIPT
--- Combines schema.sql and payment.sql for clean initialization.
-
 -- 1. SETUP DATABASE
 DROP DATABASE IF EXISTS eventmanagementsystem;
 CREATE DATABASE eventmanagementsystem;
