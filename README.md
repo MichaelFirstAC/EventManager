@@ -68,7 +68,9 @@ cd EventManagerPro
 CREATE DATABASE EventManagementSystem;
 USE EventManagementSystem;
 ```
-3. Run the SQL Scripts. ```schema```
+3. Run the SQL Scripts.
+  
+   ```schema```
 
 ### Step 3: Configure the Backend
 
@@ -77,16 +79,6 @@ USE EventManagementSystem;
 
 (This is recommended but not required. If you want to skip this, immediately go to step 3.)
 
-#### For macOS/Linux
-```
-python3 -m venv venv
-source venv/bin/activate
-```
-#### For Windows
-```
-python -m venv venv
-.\venv\Scripts\activate
-```
 3. Install the required Python packages:
 ```
 pip install Flask
