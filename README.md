@@ -68,13 +68,7 @@ cd EventManagerPro
 CREATE DATABASE EventManagementSystem;
 USE EventManagementSystem;
 ```
-3. Run these specific SQL Scripts in Order to insert the sample dummy data.
-   
-   1. DatabaseQueryCreate
-   2. DatabaseQueryInsert
-   3. DatabaseQueryTicket
-   4. DatabaseAlterUser
-   5. DatabaseAlterTable
+3. Run the SQL Scripts. ```schema```
 
 ### Step 3: Configure the Backend
 
